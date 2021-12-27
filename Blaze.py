@@ -4,7 +4,7 @@ import time
 import subprocess
 import socket
 import contextlib
-from keepalive import keep_alive
+#from keepalive import keep_alive
 #keep_alive()
 from urllib.request import urlopen
 check_for_startup = os.path.exists("startup.py")
@@ -746,7 +746,7 @@ while number_of_attempts > 0: #This checks if it is the first login attempt or n
 jidlist_file = open("jidlist.txt", "r")
 jidlist_read = jidlist_file.read()
 jid_list = jidlist_read.split("\n")
-keep_alive()
+#keep_alive()
 time.sleep(2) #Slight delay so stuff doesnt spam
 print(bcolors.OKGREEN + emoji.emojize("\n:black_small_square: \"Spam [JID or Username] w/ [Message]\" - Used to spam a user's PMs.\n:black_small_square: \"Spam Gif [JID or Username] w/ [Query]\" - Used to spam a user's PMs with a gif.\n:black_small_square: \"Poke [JID or username] w/ [Message]\" - Used for forwarding a single message to a user.\n:black_small_square: \"Poke Gif [JID or username] w/ [Query]\" - Used for forwarding a single gif to a user.\n:black_small_square: \"Friend\" - Used to add the bot as a friend so that you can add it to groups.\n:black_small_square: \"SendFriend [JID or Username]\" - Used to send a friend attribution request to a user.\n:black_small_square: \"GroupSpam [Message]\" - Used to spam the group that this command is used in.\n:black_small_square: \"GroupSpam Gif [Query]\" - Used to spam the group that this command is used in with gifs.\n:black_small_square: \"Gif [Query]\" - Used to send a single gif in the group that this command is used in.\n:black_small_square: \"Leave [GJID]\" - Used for making your bot(s) leave groups.\n") + bcolors.ENDC) #This explains the commands to the user
 print(bcolors.OKBLUE + emoji.emojize("\n:warning: You can now use the botnet.\n") + bcolors.ENDC) #This lets the user know the botnet is ready
