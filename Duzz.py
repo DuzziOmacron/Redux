@@ -45,17 +45,13 @@ try:
   page = urlopen(version_page) #This opens the page
   raw_version = page.read() #This reads the page
   version = raw_version.decode("utf-8") #This decodes the page and gives us a string
-  '''
-  The 5 lines below this comment is a killswitch.
-  You are welcome to remove it, it will not effect the botnet if you do, but it is there for YOUR safety!
-  It is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.
-  The killswitch does not cause any kind of harm, it simply asks you to update and deletes the bot code.
-  '''
-  if version == "killswitch": #This checks if the killswitch has been activated
+ '''
+ if version == "killswitch": #This checks if the killswitch has been activated
       print(bcolors.FAIL + ("This version of the botnet has been killswitched!\nThis is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.\nPlease visit https://github.com/StethoSaysHello/KikBotnet to check for updates! If you need help, email StethoSpasm@Gmail.com\n\nFor your saftey, I am now deleting this script.\nDon't worry, this will not cause any harm to your local machine!") + bcolors.ENDC) #This explains the killswitch to a user
       path = os.getcwd() #This finds the path the script is running on
       os.remove(path + '\%s' % sys.argv[0]) #This removes the script
       exit() #This stops the script if its still somehow active
+  
   if version == "Blaze": #This checks if this script is up to date
     pass
   else: #This is activated if the user is not up to date
@@ -64,7 +60,7 @@ try:
 except:
   print(bcolors.FAIL + "Oh no! There was a problem checking for updates... This is probably from hosting issues. If you need to check for updates in the meantime, please visit Github.com/StethoSaysHello/KikBotnet\n(You can still use the botnet!)" + bcolors.ENDC)
   input(bcolors.OKBLUE + "Press enter to continue: " + bcolors.ENDC)
-
+ '''
 def install(package):  # This is a function to make the installs a little more efficient. I could have just used os.system again, but...
     subprocess.check_call([sys.executable, "-m", "pip", "install", package]) #This installs the package
 
@@ -103,7 +99,7 @@ global username_thing, spam, debug_jid, thing, attempt_number, given_pass, setup
 attempt_number = 0 #This helps to check if it is the first set of logins or not for retrying closed connections.
 print(bcolors.OKGREEN + ("╭╮╭━╮╭╮    ╭━━╮   ╭╮      ╭╮\n┃┃┃╭╯┃┃    ┃╭╮┃  ╭╯╰╮    ╭╯╰╮\n┃╰╯╯╭┫┃╭╮  ┃╰╯╰┳━┻╮╭╋━╮╭━┻╮╭╯\n┃╭╮┃┣┫╰╯╯  ┃╭━╮┃╭╮┃┃┃╭╮┫┃━┫┃\n┃┃┃╰┫┃╭╮╮  ┃╰━╯┃╰╯┃╰┫┃┃┃┃━┫╰╮\n╰╯╰━┻┻╯╰╯  ╰━━━┻━━┻━┻╯╰┻━━┻━╯\n##### Created by Stetho #####") + bcolors.ENDC) #This is some neat text art on bootup. ooo greeeen
 spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv" #This is just a random variable to be used later in the "spam" command.
-debug_jid = "8675309debug_y8f@talk.kik.com" #This is where activity info is sent to. Has to be a JID, not a GJID.
+debug_jid = "merlin1943_066@talk.kik.com" #This is where activity info is sent to. Has to be a JID, not a GJID.
 jid_list = []
 
 print(bcolors.OKBLUE + ("\nHello! This script was modified by blaze to combine stethos 5.3 update with the discontinued premium commands. Skidded with love by Blaze @blazeabla!") + bcolors.ENDC)
@@ -272,23 +268,23 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                     self.client.send_chat_message(JID, "Turning antipurge on...")
                     antipurge = True
                     time.sleep(2)
-                    self.client.send_chat_message(JID, "Antipurge now on.")
+                    self.client.send_chat_message(JID, "Vete los chingasos puto")
                 elif mssg == "antipurge off":
                     self.client.send_chat_message(JID, "Turning off antipurge...")
                     antipurge = False
                     time.sleep(2)
-                    self.client.send_chat_message(JID, "Antipurge now off.")
+                    self.client.send_chat_message(JID, "voy por chellas")
                 elif mssg == "antipurge check":
                     if antipurge == True:
-                        self.client.send_chat_message(JID, "Antipurge is on.")
+                        self.client.send_chat_message(JID, "listo cabron")
                     elif antipurge == False:
-                        self.client.send_chat_message(JID, "Antipurge is off.")
+                        self.client.send_chat_message(JID, "hecho un gallo")
             elif mssg == "refresh":
                 number_of_users = 0
                 for user in jid_list:  # This loops through each user in the errors list
                     if user:  # This counts the number of users in the error list
                         number_of_users += 1
-                self.client.send_chat_message(JID, "Adding the other bots...\n(Estimated completion time is " + str(number_of_users) + " second(s).)")
+                self.client.send_chat_message(JID, "sale pues voy por los vatos locos...\n(Estimated completion time is " + str(number_of_users) + " second(s).)")
                 for user in jid_list:
                     if user:
                         self.client.add_friend(user)
@@ -310,7 +306,7 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                 try: #This attempts the gif query once first to check if its valid
                     self.client.send_gif_image(JID, gif_query) #This tries to send a gif with the query
                 except:
-                    self.client.send_chat_message(JID, "I couldn't find a gif for the query" + gif_query + "\"!")
+                    self.client.send_chat_message(JID, "welp I fukt that all to hell and lost your gif for the query" + gif_query + "\"!")
             elif mssg == "commands": #command for listing the commands.
                 self.client.send_chat_message(JID, "To spam a user's PMs, use \"spam [JID or Username] w/ [Message]\", this command works both in groups and PMs.\n\nTo spam a group, say \"friend\" in PMs to add me then add me to the group you wish to spam and say \"groupspam [message]\".\n\n Keep in mind that once you start spam, it will not stop until you restart the bot.")
             elif mssg.startswith("spam"): #Command for spamming a user.
@@ -334,13 +330,13 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                             except: #This is triggered if it fails
                                 failed = True #I could have just used "raise someerror" and except, but I was tired when I wrote this... I'ma just leave it. Don't @ me nobody really reads my code anyways. Except you... Hi nerd.
                             if failed == True: #This is triggered when gif grabbing fails
-                                self.client.send_chat_message(JID, "I couldn't find a gif for the query" + gif_query + "\"!") #This lets the user know it failed
+                                self.client.send_chat_message(JID)Im wayyy to high for this bro i lost your gif for the query" + gif_query + "\"!") #This lets the user know it failed
                             else: #This is triggered if the gif query does not fail
-                                self.client.send_chat_message(JID, "I am spamming gifs to \"" + jid_to_spam + "\" with the query \"" + gif_query + "\"!\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This lets the user on kik know it is spamming gifs
+                                self.client.send_chat_message(JID, "I am shitting gifs on \"" + jid_to_spam + "\" with the query \"" + gif_query + "\"!\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This lets the user on kik know it is spamming gifs
                                 print("I am spamming gifs to \"" + jid_to_spam + "\" with the query \"" + gif_query + "\"!\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This displays in the terminal that gif spam was triggered
                                 while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv": #This triggers a while loop with the random string we made global earlier
                                     self.client.send_gif_image(jid_to_spam, gif_query) #This sends the gif
-                                    time.sleep(0.3)  # This is the wait between each message. Never change it to 0, IP bans suck.
+                                    time.sleep(2.0)  # This is the wait between each message. Never change it to 0, IP bans suck.
                         else:
                             remove_spam = mssg.replace("spam ", "") #This takes the first part of the message off to isolate the jid/username and message
                             split_string = remove_spam.split(" w/ ", 1) #This splits the message into the JID/username and message
@@ -359,7 +355,7 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                                 self.client.send_chat_message(JID, "You can't use a GJID for the spam command.")
                             else: #Sends a confirmation of who is being spammed with what
                                 self.client.send_chat_message(JID, "I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(message_to_spam) + "\"!")
-                                print("I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
+                                print("I am spamming the usr \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
                                     message_to_spam) + "\"!")
                                 while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
                                     self.client.send_chat_message(jid_to_spam, emoji.emojize(message_to_spam)) #This is the bot spamming
