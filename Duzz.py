@@ -51,7 +51,7 @@ try:
       path = os.getcwd() #This finds the path the script is running on
       os.remove(path + '\%s' % sys.argv[0]) #This removes the script
       exit() #This stops the script if its still somehow active
-  
+ '''
   if version == "Blaze": #This checks if this script is up to date
     pass
   else: #This is activated if the user is not up to date
@@ -60,7 +60,7 @@ try:
 except:
   print(bcolors.FAIL + "Oh no! There was a problem checking for updates... This is probably from hosting issues. If you need to check for updates in the meantime, please visit Github.com/StethoSaysHello/KikBotnet\n(You can still use the botnet!)" + bcolors.ENDC)
   input(bcolors.OKBLUE + "Press enter to continue: " + bcolors.ENDC)
- '''
+ 
 def install(package):  # This is a function to make the installs a little more efficient. I could have just used os.system again, but...
     subprocess.check_call([sys.executable, "-m", "pip", "install", package]) #This installs the package
 
@@ -102,7 +102,7 @@ spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv" #This is just a random variable to
 debug_jid = "merlin1943_066@talk.kik.com" #This is where activity info is sent to. Has to be a JID, not a GJID.
 jid_list = []
 
-print(bcolors.OKBLUE + ("\nHello! This script was modified by blaze to combine stethos 5.3 update with the discontinued premium commands. Skidded with love by Blaze @blazeabla!") + bcolors.ENDC)
+print(bcolors.OKBLUE + ("\nHello! This script was modified by blaze to combine stethos 5.3 update with the discontinued premium commands. DUZZI spiced up the responses!!  Skidded with love by Blaze @blazeabla!") + bcolors.ENDC)
 
 name = input(bcolors.OKBLUE + ("\nWhat is your name?: ") + bcolors.ENDC)
 
