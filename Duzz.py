@@ -45,13 +45,13 @@ try:
   page = urlopen(version_page) #This opens the page
   raw_version = page.read() #This reads the page
   version = raw_version.decode("utf-8") #This decodes the page and gives us a string
- '''
+  '''
  if version == "killswitch": #This checks if the killswitch has been activated
       print(bcolors.FAIL + ("This version of the botnet has been killswitched!\nThis is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.\nPlease visit https://github.com/StethoSaysHello/KikBotnet to check for updates! If you need help, email StethoSpasm@Gmail.com\n\nFor your saftey, I am now deleting this script.\nDon't worry, this will not cause any harm to your local machine!") + bcolors.ENDC) #This explains the killswitch to a user
       path = os.getcwd() #This finds the path the script is running on
       os.remove(path + '\%s' % sys.argv[0]) #This removes the script
       exit() #This stops the script if its still somehow active
- '''
+  '''
   if version == "Blaze": #This checks if this script is up to date
     pass
   else: #This is activated if the user is not up to date
