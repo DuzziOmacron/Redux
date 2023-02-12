@@ -33,7 +33,7 @@ class bcolors:  # This is for adding colors to text in the terminal.
     ENDC = '\033[0m'  # This is to stop using color.
 
 
-# This function is for making a "..." with a delay between each period at the end of a print statement.
+# This function is for making a "..." with a delay? FUCK A DELAY! AINT NOBODY GOT TIME FOR THAT.
 def ominous_dots(string):
     # This prints the string that was given to the function
     sys.stdout.write(string)
@@ -42,12 +42,10 @@ def ominous_dots(string):
     for dot in dots:  # This loops through the 3 periods
         sys.stdout.write(dot)  # This prints a period
         sys.stdout.flush()  # This makes sure it doesn't make a new line like print() would
-        time.sleep(0.3)  # This waits 1/3 of a sec
-    # This waits another split second so that the total wait time is exactly 1 second
-    time.sleep(0.1)
+        time.sleep(0.003)  # This waits 3/1000s of a sec too long
+    # This waits another split second so that the total wait time is exactly 0.001 second
+    time.sleep(0.001)
 
-
-# This lets the user know the bot is booting up.
 ominous_dots(bcolors.OKGREEN + ("Toking up") + bcolors.ENDC)
 
 # This hides the output from installation to avoid spam
@@ -85,56 +83,49 @@ except:
     input(bcolors.OKBLUE + "Press enter to continue: " + bcolors.ENDC)
 
 
-# This is a function to make the installs a little more efficient. I could have just used os.system again, but...
 def install(package):
     # This installs the package
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 
-try:  # This tries to import
+try: 
     import emoji
-except ModuleNotFoundError:  # This is triggered if the import fails
+except ModuleNotFoundError:  
     print(bcolors.OKGREEN + ("\nOne moment while I install the emoji module.") +
-          bcolors.ENDC)  # This lets the user know it will install the module
-    install('emoji')  # This is used to send/recieve, and encode/decode emojis.
+          bcolors.ENDC)  
+    install('emoji')  
     import emoji
 try:  # This tries to import
     import colorama
-except ModuleNotFoundError:  # This is triggered if the import fails
+except ModuleNotFoundError:  
     print(bcolors.OKGREEN + ("\nOne moment while I install the colorama module.") +
-          bcolors.ENDC)  # This lets the user know it will install the module
-    # This is used to make pretty colors in the terminal. oooooo
+          bcolors.ENDC)  
     install('colorama')
     import colorama
 try:  # This tries to import
     import kik_unofficial
-except ModuleNotFoundError:  # This is triggered if the import fails
+except ModuleNotFoundError: 
     print(bcolors.OKGREEN + ("\nOne moment while I install the kik_unofficial module.") +
-          bcolors.ENDC)  # This lets the user know it will install the module
-    install('kik_unofficial')  # This is pretty obvious
+          bcolors.ENDC)  
+    install('kik_unofficial')  
     import kik_unofficial
 
 
-# This clears out debug logs if there are any.
 clear = open("kik-debug.log", "w+")
-clear.close()  # This closes the debug log, always a good practice.
-# This clears out the jid list if there is one.
+clear.close()  
 clear = open("jidlist.txt", "w+")
 clear.close()
 
-# This declares these variables as global to be used everywhere because I'm lazy
 global username_thing, spam, debug_jid, bot_count, attempt_number, MFR_secret, setup_preset, jid_list, name
-# This helps to check if it is the first set of logins or not for retrying closed connections.
 attempt_number = 0
 print(bcolors.OKGREEN + ("╭╮╭━╮╭╮    ╭━━╮   ╭╮      ╭╮\n┃┃┃╭╯┃┃    ┃╭╮┃  ╭╯╰╮    ╭╯╰╮\n┃╰╯╯╭┫┃╭╮  ┃╰╯╰┳━┻╮╭╋━╮╭━┻╮╭╯\n┃╭╮┃┣┫╰╯╯  ┃╭━╮┃╭╮┃┃┃╭╮┫┃━┫┃\n┃┃┃╰┫┃╭╮╮  ┃╰━╯┃╰╯┃╰┫┃┃┃┃━┫╰╮\n╰╯╰━┻┻╯╰╯  ╰━━━┻━━┻━┻╯╰┻━━┻━╯\n##### Created by Stetho #####") +
-      bcolors.ENDC)  # This is some neat text art on bootup. ooo greeeen
-# This is just a random variable to be used later in the "spam" command.
+      bcolors.ENDC) 
 spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv"
 # This is where activity info is sent to. Has to be a JID, not a GJID.
-debug_jid = "merlin1943_066@talk.kik.com"
+debug_jid = "JID_420@talk.kik.com" #no your JID goes here RETARD...now KYS 
 jid_list = []
 
-print(bcolors.OKBLUE + ("\nHello! This script was modified by blaze to combine stethos 5.3 update with the discontinued premium commands. DUZZI spiced up the responses!!  Skidded with love by Blaze @blazeabla!") + bcolors.ENDC)
+print(bcolors.OKBLUE + ("\nHello! This script was modified by blaze to combine stethos 5.3 update with the discontinued premium commands. DUZZI spiced up the responses!!  Skidded? HELL NAH!") + bcolors.ENDC)
 
 name = input(bcolors.OKBLUE + ("\nWhat is your name?: ") + bcolors.ENDC)
 
@@ -193,8 +184,7 @@ if use_preset == True:
         exit()
 
 
-def get_prefix():  # This function asks for the bot prefix.
-    # This asks for the bot username prefix in the terminal.
+def get_prefix():  
     username_thing = input(
         bcolors.OKGREEN + ("\n\nWhat is the prefix of your bots usernames?: ") + bcolors.ENDC)
     return username_thing
